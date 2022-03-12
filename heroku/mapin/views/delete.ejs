@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title><%= title %></title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <h1><%= title %></h1>
+
+  <div id="createForm">
+    <form action="/delete" method="post">
+      <button type="submit">
+        削除
+      </button>
+    </form>
+  </div>
+  <div id="mapInfoList">
+    <% for(var i=0; i < maps.length;i++) { %>
+    <div><%= maps[i].name %>／<%= maps[i].lat %>／<%= maps[i].lng %>／<%= maps[i].url %></div>
+    <% } %>
+  </div>
+
+</body>
+
+</html>
