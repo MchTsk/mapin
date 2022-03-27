@@ -23,12 +23,8 @@ function currentSearch() {
               		document.getElementById("map"), // マップを表示する要素
               		mapOptions         // マップオプション
             	);
+				//　マップにマーカーを表示する
 				hotelMarkerDisp(map);
-            	//　マップにマーカーを表示する
-            	// var marker = new google.maps.Marker({
-              	// 	map : map,             // 対象の地図オブジェクト
-              	// 	position : mapLatLng   // 緯度・経度
-            	// });
           	},
           	// 取得失敗した場合
           	function(error) {
@@ -74,7 +70,9 @@ function hotelMarkerDisp(map) {
        	});
  
    		infoWindow[i] = new google.maps.InfoWindow({ // 吹き出しの追加
-			content: '<div class="sample">' + markerData[i]['name'] + '</div>' // 吹き出しに表示する内容
+			// 吹き出しに表示する内容
+			content: '<div class="url"><a href="' + markerData[i]['url'] + '">' 
+			+ markerData[i]['name'] + '</a></div>'
 		});
 		markerEvent(i); // マーカーにクリックイベントを追加
  	}
