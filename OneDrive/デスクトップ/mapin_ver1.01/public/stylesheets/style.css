@@ -1,0 +1,30 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.errMsg {
+  color: #ff0000;
+}
+
+#hTable{
+  border-spacing: 5px 5px;
+}
+
+.listMgr {
+  padding: 5px 50px;
+}
+
+.updButton {
+  color: white;
+  background-color: blue;
+}
+
+.delButton {
+  color: white;
+  background-color: red;
+}
