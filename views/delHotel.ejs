@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title><%= title %></title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <script type="text/javascript" src="/javascripts/commonCustom.js"></script>
+  <script type="text/javascript" src="/javascripts/formCustom.js"></script>
+</head>
+
+<body>
+  <h1><%= title %></h1>
+
+  <div><a id="index_link" href="">ホテル検索はこちら</a></div>
+
+  <div id="createForm">
+    <form action="/delHotel" method="post">
+      <table>
+        <tbody>
+          <tr>
+            下記内容を削除する場合は「削除」ボタンを押下してください。
+          </tr>
+          <tr>
+            <th>ホテル名</th>
+            <td><%= name %></td>
+          </tr>
+          <tr>
+            <th>緯度</th>
+            <td><%= lat %></td>
+          </tr>
+          <tr>
+            <th>経度</th>
+            <td><%= lng %></td>
+          </tr>
+          <tr>
+            <th>ホームページURL</th>
+            <td><%= url %></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td style="text-align: right;"><button type="submit">削除</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+  </div>
+  <div id="map"></div>
+
+</body>
+
+</html>
