@@ -1,13 +1,16 @@
 window.onload = function() {
-	var uid = location.search.split('=')[1];
-	if(uid) {
-		$('.regUser').show();
-		$('.nonUser').hide();
-	} else {
-		$('.regUser').hide();
-		$('.nonUser').show();
-	}
 
-	// 共通処理（リンク設定）
-	linkSetting(['login_link', 'regist_link', 'form_link', 'index_link']);
+	var param = location.search.split('=')[1];
+	var corpList = ["regHotel", "updHotel", "delHotel"];
+	var genList = ["reserve", "cancel"];
+	if(corpList.includes(param)) {
+		$('.copUser, .comUser').show();
+		$('.genUser, .nonUser').hide();
+	} else if(genList.includes(param)) {
+		$('.genUser, .comUser').show();
+		$('.copUser, .nonUser').hide();
+	} else {
+		$('.nonUser').show();
+		$('.genUser, .copUser, .comUser').hide();
+	}
 }

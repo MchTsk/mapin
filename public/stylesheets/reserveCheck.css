@@ -1,0 +1,104 @@
+/* ---------------------予約詳細CSS-------------------------- */
+.formSubTitle {
+  background-color: #c8f9ff;
+}
+
+.formValue {
+  background-color: #f0f0f0;
+  text-align: center;
+}
+
+.formNum {
+  width: 40px;
+}
+
+/* 利用者名によって長さが変わるため指定なし */
+/* .formUserName {
+  width: 120px;
+} */
+
+.formContact {
+  width: 120px;
+}
+
+.formResDate {
+  width: 140px;
+}
+
+.formResTime {
+  width: 120px;
+}
+
+.formRoomVal {
+  width: 75px;
+}
+
+.formRegDate {
+  width: 150px;
+}
+
+.formYohaku {
+  width: 15px;
+}
+
+#hotelName {
+  font-size: 25px;
+  /* padding-right: 30px; */
+}
+
+/* ---------------------セレクトボックスCSS-------------------------- */
+
+.resDateDiv {
+  position: relative;
+  width: 13.5%;
+  text-align: center;
+}
+
+#resDate {
+  position: relative;
+  font-family: inherit;
+  background-color: transparent;
+  width: 145px;
+  padding: 10px 10px 10px 0;
+  font-size: 15px;
+  border-radius: 0;
+  border: none;
+  border-bottom: 1px solid rgba(0,0,0, 0.3);
+}
+
+#resDate:focus {
+  outline: none;
+  border-bottom: 1px solid rgba(0,0,0, 0);
+}
+
+.resDateDiv #resDate {
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.resDateDiv select::-ms-expand {
+  display: none;
+}
+
+.resDateDiv:after {
+  position: absolute;
+  top: 18px;
+  left: 150px;
+  width: 0;
+  height: 0;
+  padding: 0;
+  content: '';
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid rgba(0, 0, 0, 0.3);
+  pointer-events: none;
+  /* アニメーション */
+  animation-name: fadeUpAnime;
+  animation-duration: 0.9s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+.resDateDiv {
+  padding-left: 30px;
+}

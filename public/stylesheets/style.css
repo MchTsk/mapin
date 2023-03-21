@@ -1,5 +1,6 @@
 body {
-  padding: 50px;
+  padding: 100px;
+  padding-top: 30px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -7,8 +8,22 @@ a {
   color: #00B7FF;
 }
 
+#exLink {
+  color: rgb(2, 152, 211);
+  text-decoration: none;
+}
+
+#exLink:hover {
+  color: rgb(0, 23, 100);
+  text-decoration: underline;
+}
+
 .errMsg {
   color: #ff0000;
+}
+
+.actMsg {
+  color: blue;
 }
 
 #hTable{
@@ -27,4 +42,213 @@ a {
 .delButton {
   color: white;
   background-color: red;
+}
+
+.detailTitle {
+  margin-left: 40px;
+}
+
+.detailForm {
+  margin-left: 15px;
+}
+
+#btnRegist {
+  margin-top: 20px;
+}
+
+.detailDisp {
+  font-size: 18px;
+  color: #00b7ff;
+}
+
+.detailDisp:hover{
+  cursor: pointer;
+  text-decoration: underline;
+  color: #0077ff;
+}
+
+.smallFont {
+  font-size: 5px;
+  color: gray;
+}
+
+.contact {
+  width: 42.7px;
+}
+
+.reqMsg {
+  color: #ff0000;
+  font-size: 10px;
+}
+
+header {
+  display: block;
+  height: 100px;
+}
+
+.header-logo {
+  float: left;
+}
+
+.header-nav {
+  float: right;
+}
+
+.nav li {
+  line-height: 20px;
+  font-size: 16px;
+  display: inline-block;
+  position: relative;
+}
+
+.nav a:link {
+  padding: 15px 14px 15px;
+  padding-top: 17px;
+  padding-bottom: 20px;
+  text-decoration: none;
+  display: block;
+  transition: 0.3s;
+}
+
+.nav a:hover {
+  background-color: #f1f1f1;
+}
+
+main {
+  display: block;
+  height: 700px;
+  width: 1200px;
+  padding-left: 100px;
+}
+
+.blueSquare {
+  color: #00b7ff;
+  font-size: 18px;
+}
+
+.formTitle {
+  font-size: 18px;
+  width: fit-content;
+  border-bottom: 2.5px solid #91f2ff;
+  padding-left: 5px;
+  padding-bottom: 5px;
+}
+
+/* ---------------------枠線（下）にアニメーション-------------------------- */
+
+.nav li a{
+  /*線の基点とするためrelativeを指定*/
+  position: relative;
+}
+
+.nav li.current a,
+.nav li a:hover{
+  color:#0481A2;
+}
+
+.nav li a::after {
+  content: '';
+  /*絶対配置で線の位置を決める*/
+  position: absolute;
+  bottom: 0;
+  left: 0%;
+  /*線の形状*/
+  width: 100%;
+  height: 3px;
+  background:#9AD9EA;
+  /*アニメーションの指定*/
+  transition: all .3s;
+  transform: scale(0, 1);/*X方向0、Y方向1*/
+  transform-origin: left top;/*左上基点*/
+}
+
+/*現在地とhoverの設定*/
+.nav li.current a::after,
+.nav li a:hover::after {
+  transform: scale(1, 1);/*X方向にスケール拡大*/
+}
+
+/* ---------------------画面表示時アニメーション-------------------------- */
+
+.fadeUp1{
+  animation-name: fadeUpAnime;
+  animation-duration: 0.8s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+.fadeIn{
+  animation: fadeIn 0.7s ease-out 1.0s 1 normal;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+.fadeIn2{
+  animation: fadeIn 0.7s ease-out 1.2s 1 normal;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+.fadeUp2{
+  animation-name: fadeUpAnime;
+  animation-duration: 1.2s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+.fadeUp3{
+  animation-name: fadeUpAnime;
+  animation-duration: 1.5s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+.fadeUp4{
+  animation-name: fadeUpAnime;
+  animation-duration: 1.8s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+.fadeUp5{
+  animation-name: fadeUpAnime;
+  animation-duration: 2.0s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+@keyframes fadeUpAnime{
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn{
+
+  /*アニメーション開始時は不透明度0%*/
+  0% {opacity: 0}
+
+  /*アニメーション終了時は不透明度100%*/
+  100% {opacity: 1}
+
+}
+
+/* ---------------------各種ボタンCSS-------------------------- */
+
+
+
+/* ---------------------チェックボックスCSS-------------------------- */
+
+input[type='checkbox'] {
+  transform: scale(1.5);
+}
+
+input[type='checkbox']:checked {
+  accent-color: rgb(0, 102, 255);
 }

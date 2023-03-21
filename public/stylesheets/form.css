@@ -1,0 +1,508 @@
+/* ---------------------予約詳細CSS-------------------------- */
+.formSubTitle {
+  background-color: #c8f9ff;
+}
+
+.formSubTitle2 {
+  background-color: #d7faff;
+}
+
+.formValue {
+  background-color: #e9e9e9;
+}
+
+.formYohaku {
+  width: 25px;
+}
+
+.formTimeTitle {
+  text-align: center;
+}
+
+.textBox {
+  width: 613px;
+}
+
+/* ---------------------セレクトボックスボタンCSS-------------------------- */
+
+.timeDiv {
+  position: relative;
+  width: 10%;
+  text-align: center;
+}
+
+select {
+  position: relative;
+  font-family: inherit;
+  background-color: transparent;
+  width: 80px;
+  height: 30px;
+  /* padding: 10px 10px 10px 0; */
+  font-size: 13.5px;
+  border-radius: 0;
+  border: none;
+  border-bottom: 1px solid rgba(0,0,0, 0.3);
+  text-align: center;
+  background-color: #fff;
+}
+
+select:focus {
+  outline: none;
+  border-bottom: 1px solid rgba(0,0,0, 0);
+}
+
+.timeDiv select {
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.timeDiv select::-ms-expand {
+  display: none;
+}
+
+.timeDiv:after {
+  position: absolute;
+  top: 18px;
+  left: 90px;
+  width: 0;
+  height: 0;
+  padding: 0;
+  content: '';
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid rgba(0, 0, 0, 0.3);
+  pointer-events: none;
+  /* アニメーション */
+  animation-name: fadeUpAnime;
+  animation-duration: 0.9s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+.timeDiv {
+  padding-left: 30px;
+}
+
+/* ---------------------削除ボタンCSS-------------------------- */
+
+.delBtn {
+  color: red;
+  cursor: pointer;
+  border: 2px solid red;
+  border-radius: 0;
+  background: #fff;
+  margin-left: 10px;
+
+  width: 100%;
+
+  -webkit-transform-style: preserve-3d;
+
+  transform-style: preserve-3d;
+}
+
+.delBtn:hover {
+  color: #000;
+  background-color: #ffa41c;
+  border: 2px solid #ffa41c;
+}
+
+.delBtn:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 9px;
+  height: 100%;
+
+  content: '';
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  -webkit-transform: translateX(0) translateY(0);
+  transform: translateX(0) translateY(0);
+
+  border-radius: 0 50% 50% 0;
+  background: red;
+}
+
+.delBtn:hover:before {
+  font-family: 'Font Awesome 5 Free';
+  font-weight: bold;
+  line-height: 22px;
+
+  width: 22px;
+  height: 22px;
+
+  content: '➔';
+  -webkit-transform: translateX(0%) translateY(.0rem);
+  transform: translateX(390%) translateY(0%);
+
+  color: #ffa41c;
+  border-radius: 50%;
+}
+
+.delBtn:disabled {
+  color: #a5a5a5;
+  cursor: default;
+  border: 2px solid #a5a5a5;
+  border-radius: 0;
+  background: #fff;
+
+  -webkit-transform-style: preserve-3d;
+
+  transform-style: preserve-3d;
+}
+
+.delBtn:disabled:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 3.5px;
+  height: 100%;
+
+  content: '';
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  -webkit-transform: translateX(0) translateY(0);
+  transform: translateX(0) translateY(0);
+
+  border-radius: 0 50% 50% 0;
+  background: #a5a5a5;
+}
+
+/* ---------------------予約詳細枠増加ボタンCSS-------------------------- */
+
+#incRes {
+  color: #000;
+  cursor: pointer;
+  border: 2px solid #000;
+  border-radius: 0;
+  background: #fff;
+
+  width: 23%;
+
+  -webkit-transform-style: preserve-3d;
+
+  transform-style: preserve-3d;
+}
+
+#incRes:hover {
+  background-color: #fffc5c;
+}
+
+#incRes:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 8px;
+  height: 100%;
+
+  content: '';
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  -webkit-transform: translateX(0) translateY(0);
+  transform: translateX(0) translateY(0);
+
+  border-radius: 0 50% 50% 0;
+  background: #000;
+}
+
+#incRes:hover:before {
+  font-family: 'Font Awesome 5 Free';
+  font-weight: bold;
+  line-height: 22px;
+
+  width: 22px;
+  height: 22px;
+
+  content: '＋';
+  -webkit-transform: translateX(0%) translateY(.0rem);
+  transform: translateX(590%) translateY(0%);
+
+  color: #fffc5c;
+  border-radius: 50%;
+}
+
+#incRes:disabled {
+  color: #a5a5a5;
+  cursor: default;
+  border: 2px solid #a5a5a5;
+  border-radius: 0;
+  background: #fff;
+
+  -webkit-transform-style: preserve-3d;
+
+  transform-style: preserve-3d;
+}
+
+#incRes:disabled:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 3.5px;
+  height: 100%;
+
+  content: '';
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  -webkit-transform: translateX(0) translateY(0);
+  transform: translateX(0) translateY(0);
+
+  border-radius: 0 50% 50% 0;
+  background: #a5a5a5;
+}
+
+/* ---------------------登録ボタンCSS-------------------------- */
+
+.btnRegist {
+  color: #000;
+  cursor: pointer;
+  border: 2px solid #000;
+  border-radius: 0;
+  background: #fff;
+
+  width: 12%;
+
+  -webkit-transform-style: preserve-3d;
+
+  transform-style: preserve-3d;
+}
+
+.btnRegist:hover {
+  background-color: #aff6ff;
+}
+
+.btnRegist:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 9px;
+  height: 100%;
+
+  content: '';
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  -webkit-transform: translateX(0) translateY(0);
+  transform: translateX(0) translateY(0);
+
+  border-radius: 0 50% 50% 0;
+  background: #000;
+}
+
+.btnRegist:hover:before {
+  font-family: 'Font Awesome 5 Free';
+  font-weight: bold;
+  line-height: 22px;
+
+  width: 22px;
+  height: 22px;
+
+  content: '➡';
+  -webkit-transform: translateX(0%) translateY(.0rem);
+  transform: translateX(270%) translateY(0%);
+
+  color: #aff6ff;
+  border-radius: 50%;
+}
+
+.btnRegist:disabled {
+  color: #a5a5a5;
+  cursor: default;
+  border: 2px solid #a5a5a5;
+  border-radius: 0;
+  background: #fff;
+
+  -webkit-transform-style: preserve-3d;
+
+  transform-style: preserve-3d;
+}
+
+.btnRegist:disabled:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 3.5px;
+  height: 100%;
+
+  content: '';
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  -webkit-transform: translateX(0) translateY(0);
+  transform: translateX(0) translateY(0);
+
+  border-radius: 0 50% 50% 0;
+  background: #a5a5a5;
+}
+
+/* ---------------------更新ボタンCSS-------------------------- */
+
+.btnUpdate {
+  color: #000;
+  cursor: pointer;
+  border: 2px solid #000;
+  border-radius: 0;
+  background: #fff;
+
+  width: 12%;
+
+  -webkit-transform-style: preserve-3d;
+
+  transform-style: preserve-3d;
+}
+
+.btnUpdate:hover {
+  background-color: #82ff9d;
+}
+
+.btnUpdate:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 9px;
+  height: 100%;
+
+  content: '';
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  -webkit-transform: translateX(0) translateY(0);
+  transform: translateX(0) translateY(0);
+
+  border-radius: 0 50% 50% 0;
+  background: #000;
+}
+
+.btnUpdate:hover:before {
+  font-family: 'Font Awesome 5 Free';
+  font-weight: bold;
+  line-height: 22px;
+
+  width: 22px;
+  height: 22px;
+
+  content: '➡';
+  -webkit-transform: translateX(0%) translateY(.0rem);
+  transform: translateX(270%) translateY(0%);
+
+  color: #82ff9d;
+  border-radius: 50%;
+}
+
+.btnUpdate:disabled {
+  color: #a5a5a5;
+  cursor: default;
+  border: 2px solid #a5a5a5;
+  border-radius: 0;
+  background: #fff;
+
+  -webkit-transform-style: preserve-3d;
+
+  transform-style: preserve-3d;
+}
+
+.btnUpdate:disabled:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 3.5px;
+  height: 100%;
+
+  content: '';
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  -webkit-transform: translateX(0) translateY(0);
+  transform: translateX(0) translateY(0);
+
+  border-radius: 0 50% 50% 0;
+  background: #a5a5a5;
+}
+
+/* ---------------------削除(ホテル削除画面)ボタンCSS-------------------------- */
+
+.btnDelete {
+  color: red;
+  cursor: pointer;
+  border: 2px solid red;
+  border-radius: 0;
+  background: #fff;
+
+  width: 12%;
+
+  -webkit-transform-style: preserve-3d;
+
+  transform-style: preserve-3d;
+}
+
+.btnDelete:hover {
+  color: #000;
+  background-color: #ffa41c;
+}
+
+.btnDelete:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 9px;
+  height: 100%;
+
+  content: '';
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  -webkit-transform: translateX(0) translateY(0);
+  transform: translateX(0) translateY(0);
+
+  border-radius: 0 50% 50% 0;
+  background: red;
+}
+
+.btnDelete:hover:before {
+  font-family: 'Font Awesome 5 Free';
+  font-weight: bold;
+  line-height: 22px;
+
+  width: 22px;
+  height: 22px;
+
+  content: '➡';
+  -webkit-transform: translateX(0%) translateY(.0rem);
+  transform: translateX(255%) translateY(0%);
+
+  color: #ffa41c;
+  border-radius: 50%;
+}
+
+.btnDelete:disabled {
+  color: #a5a5a5;
+  cursor: default;
+  border: 2px solid #a5a5a5;
+  border-radius: 0;
+  background: #fff;
+
+  -webkit-transform-style: preserve-3d;
+
+  transform-style: preserve-3d;
+}
+
+.btnDelete:disabled:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 3.5px;
+  height: 100%;
+
+  content: '';
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  -webkit-transform: translateX(0) translateY(0);
+  transform: translateX(0) translateY(0);
+
+  border-radius: 0 50% 50% 0;
+  background: #a5a5a5;
+}

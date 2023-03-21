@@ -1,0 +1,55 @@
+/* ---------------------予約詳細CSS-------------------------- */
+.formSubTitle {
+  background-color: #c8f9ff;
+}
+
+.formValue {
+  background-color: #f0f0f0;
+  text-align: center;
+}
+
+.formNum {
+  width: 40px;
+}
+
+/* ホテル名によって長さが変わるため指定なし */
+/* .formHotelName {
+  width: 120px;
+} */
+
+.formResDate {
+  width: 140px;
+}
+
+.formResTime {
+  width: 120px;
+}
+
+.formRoomVal {
+  width: 75px;
+}
+
+.formRegDate {
+  width: 150px;
+}
+
+.formYohaku {
+  width: 20px;
+}
+
+/* ---------------------キャンセルボタンCSS-------------------------- */
+
+.btnCancel {
+  cursor: pointer;
+  color: #ff0000;
+  border: 2px solid #ff0000;
+  border-radius: 0;
+  background: #fff;
+  transition: 0.4s;
+}
+
+.btnCancel:hover {
+  background-color: #ffa41c;
+  border: 2px solid #ffa41c;
+  color: #000;
+}

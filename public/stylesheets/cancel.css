@@ -1,0 +1,105 @@
+/* ---------------------予約詳細CSS-------------------------- */
+.formSubTitle {
+  background-color: #c8f9ff;
+  width: 100px;
+}
+
+.formValue {
+  background-color: #f0f0f0;
+  width: 300px;
+  text-align: center;
+}
+
+.formYohaku {
+  width: 20px;
+}
+
+input[type=text] {
+  width: 300px;
+}
+
+/* ---------------------キャンセルボタンCSS-------------------------- */
+
+#btnCancel {
+  color: red;
+  cursor: pointer;
+  border: 2px solid red;
+  border-radius: 0;
+  background: #fff;
+
+  width: 33%;
+
+  -webkit-transform-style: preserve-3d;
+
+  transform-style: preserve-3d;
+}
+
+#btnCancel:hover {
+  color: #000;
+  background-color: #ffa41c;
+  border: 2px solid #ffa41c;
+}
+
+#btnCancel:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 9px;
+  height: 100%;
+
+  content: '';
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  -webkit-transform: translateX(0) translateY(0);
+  transform: translateX(0) translateY(0);
+
+  border-radius: 0 50% 50% 0;
+  background: red;
+}
+
+#btnCancel:hover:before {
+  font-family: 'Font Awesome 5 Free';
+  font-weight: bold;
+  line-height: 22px;
+
+  width: 22px;
+  height: 22px;
+
+  content: '➔';
+  -webkit-transform: translateX(0%) translateY(.0rem);
+  transform: translateX(390%) translateY(0%);
+
+  color: #ffa41c;
+  border-radius: 50%;
+}
+
+#btnCancel:disabled {
+  color: #a5a5a5;
+  cursor: default;
+  border: 2px solid #a5a5a5;
+  border-radius: 0;
+  background: #fff;
+
+  -webkit-transform-style: preserve-3d;
+
+  transform-style: preserve-3d;
+}
+
+#btnCancel:disabled:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 3.5px;
+  height: 100%;
+
+  content: '';
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  -webkit-transform: translateX(0) translateY(0);
+  transform: translateX(0) translateY(0);
+
+  border-radius: 0 50% 50% 0;
+  background: #a5a5a5;
+}

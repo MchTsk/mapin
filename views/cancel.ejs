@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="shortcut icon" href="/images/目的地アイコン1.ico">
+  <title><%= title %></title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link rel='stylesheet' href='/stylesheets/cancel.css' />
+  <script type="text/javascript" src="/javascripts/commonCustom.js"></script>
+  <script type="text/javascript" src="/javascripts/cancelCustom.js"></script>
+</head>
+
+<body>
+
+  <header>
+    <div class="header-measure">
+      <div class="header-logo">
+        <a href="/"><img src="/images/title.jpg" alt=""></a>
+      </div>
+      <div class="header-nav">
+        <nav class="nav">
+          <ul>
+            <li class="genUser"><a href="/">ホーム</a></li>
+            <li class="genUser"><a href="/reserveList">予約確認</a></li>
+            <li class="genUser"><a href="/?page=logout">ログアウト</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <h1 class="fadeUp1"><%= title %></h1>
+
+    <div id="cancelForm">
+      <form action="/cancel" method="post">
+        <table>
+          <tbody>
+            <tr>
+              <div class="fadeIn">下記の内容をキャンセルする場合は「キャンセル」ボタンを押下してください。</div>
+            </tr>
+            <tr class="fadeUp2">
+              <th colspan="3" style="padding: 10px 0px 15px; text-align: left;"><div class="formTitleDiv resHotelArea"><span class="blueSquare">◇</span><span class="formTitle">予約情報&nbsp;</span></div></th>
+            </tr>
+            <tr class="fadeUp2">
+              <td class="formYohaku"></td>
+              <th class="formSubTitle">ホテル名</th>
+              <td class="formValue" colspan="2"><span><%= hotelName %></span></td>
+            </tr>
+            <tr class="fadeUp2">
+              <td class="formYohaku"></td>
+              <th class="formSubTitle">予約日</th>
+              <td class="formValue" colspan="2"><span><%= resDate %></span></td>
+            </tr>
+            <tr class="fadeUp2">
+              <td class="formYohaku"></td>
+              <th class="formSubTitle">時間</th>
+              <td class="formValue" colspan="2"><span><%= fromTime %> ～ <%= toTime %></span></td>
+            </tr>
+            <tr class="fadeUp2">
+              <td class="formYohaku"></td>
+              <th class="formSubTitle">値段</th>
+              <td class="formValue" colspan="2"><span><%= roomVal %> 円</span></td>
+            </tr>
+
+            <tr>
+              <td></td><td></td>
+              <td style="text-align: right; padding-top: 10px;" class="fadeUp3"><button id="btnCancel" type="submit">キャンセル</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </form>
+    </div>
+
+  </main>
+
+</body>
+
+</html>

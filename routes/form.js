@@ -1,41 +1,40 @@
 var express = require('express');
+var session = require('express-session');
 var router = express.Router();
 
 // Require mysqlConnection
-const connection = require('../public/javascripts/mysqlConnection');
+// const connection = require('../public/javascripts/mysqlConnection');
+const connection = require('../db/pool');
 
-const com = require('../public/javascripts/commonCustom.js');
-
-var uid = '';
+// セッション情報
+router.use(session({
+  secret: "secret",
+  resave: false,
+  saveUninitialized: true,
+  cookie:{
+    httpOnly: true,
+    secure: false,
+    // 有効期限：30分
+    maxAge: 1000 * 60 * 30
+  }
+}));
 
 /* GET index page. */
 router.get('/', function (req, res, next) {
   console.log('form初期表示処理開始');
-  uid = '';
-  if(req.url.indexOf('?') != -1) {
-    // uid
-    var uidPrm = req.url.split('?')[1].split('=')[0];
-    if(uidPrm == 'uid') {
-      uid = req.url.split('=')[1].split('&')[0];
-    }
-    console.log('uid：' + uid);
-  }
+
+  var uid = req.session.userId;
+  console.log("uid：" + uid);
+  
   if(uid) {
-    // 共通処理（セッションタイムアウト処理）
-    com.sessionRender(connection, res, uid).then(() => {
-      // 登録フォーム画面遷移処理へ
-      res.render('form', {
-        title: 'ホテル情報登録フォーム'
-      });
-    }).catch((e) => {
-      // エラー
-      console.log(e);
-      res.render('error', {});
-    })
+    // 登録フォーム画面遷移処理へ
+    res.render('form', {
+      title: 'ホテル情報登録フォーム'
+    });
   } else {
     res.render('login', {
       title: 'ログイン画面',
-      error: '',
+      error: '長時間操作が行われなかったため、自動的にログアウトされました。',
       loginId: '',
       password: ''
     });
@@ -45,25 +44,37 @@ router.get('/', function (req, res, next) {
 /* POST new todo. */
 router.post('/', function (req, res, next) {
   console.log('INSERT!!!!!!!!!');
+
+  var uid = req.session.userId;
+  console.log("uid：" + uid);
+
+  if(!uid) {
+    res.render('login', {
+      title: 'ログイン画面',
+      error: '長時間操作が行われなかったため、自動的にログアウトされました。',
+      loginId: '',
+      password: ''
+    });
+  }
+
   console.log(req.body.hotelName);
+
   const name = req.body.hotelName;
   const lat = req.body.latitude;
   const lng = req.body.longitude;
   const url = req.body.hpUrl;
-  console.log(uid);
-  
-  if(!uid) {
-    res.render('error', {});
-  }
+  const fbTime = req.body.fbTime;
+  const tbTime = req.body.tbTime;
+  const rh = req.body.regHoliday;
+  const ri = req.body.resInfo;
 
-  connection.query('INSERT INTO hotelInfo(name,lat,lng,url,userId,delFlg) VALUES(?,?,?,?,?,?);', [name, lat, lng, url, uid, 0], (error, response) => {
+  connection.query('INSERT INTO hotelInfo(name,lat,lng,url,"fromBusTime","toBusTime","regHoliday","reservationInfo","userId","delFlg") VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10);', [name, lat, lng, url, fbTime, tbTime, rh, ri, uid, 0], (error, response) => {
     if (error) {
       console.error('Insert Error:' + error);
       res.render('error', {});
     } else {
       console.log('Insert Success');
-      res.writeHead(301, { Location: "/complete/?uid=" + uid + "&comp=regHotel" });
-      res.end();
+      res.redirect('/complete/?comp=regHotel');
     }
     return;
   });

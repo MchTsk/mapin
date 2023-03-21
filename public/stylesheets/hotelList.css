@@ -1,0 +1,54 @@
+.formSubTitle {
+  background-color: #c8f9ff;
+}
+
+/* ---------------------予約状況ボタンCSS-------------------------- */
+
+.btnConfirm {
+  cursor: pointer;
+  color: #000;
+  border: 2px solid #000;
+  border-radius: 0;
+  background: #fff;
+  transition: 0.4s;
+}
+
+.btnConfirm:hover {
+  background-color: #aff6ff;
+  border: 2px solid #000;
+  color: #000;
+}
+
+/* ---------------------編集ボタンCSS-------------------------- */
+
+.btnEdit {
+  cursor: pointer;
+  color: #000;
+  border: 2px solid #000;
+  border-radius: 0;
+  background: #fff;
+  transition: 0.4s;
+}
+
+.btnEdit:hover {
+  background-color: #82ff9d;
+  border: 2px solid #000;
+  color: #000;
+}
+
+/* ---------------------削除ボタンCSS-------------------------- */
+
+.btnDelete {
+  cursor: pointer;
+  color: #ff0000;
+  border: 2px solid #ff0000;
+  border-radius: 0;
+  background: #fff;
+  transition: 0.4s;
+}
+
+.btnDelete:hover {
+  background-color: #ffa41c;
+  border: 2px solid #ffa41c;
+  color: #000;
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="shortcut icon" href="/images/目的地アイコン1.ico">
+  <title><%= title %></title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link rel='stylesheet' href='/stylesheets/reserveList.css' />
+  <script type="text/javascript" src="/javascripts/commonCustom.js"></script>
+  <script type="text/javascript" src="/javascripts/reserveListCustom.js"></script>
+</head>
+
+<body>
+
+  <header>
+    <div class="header-measure">
+      <div class="header-logo">
+        <a href="/"><img src="/images/title.jpg" alt=""></a>
+      </div>
+      <div class="header-nav">
+        <nav class="nav">
+          <ul>
+            <li class="genUser"><a href="/">ホーム</a></li>
+            <li class="genUser"><a href="/?page=logout">ログアウト</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <h1 class="fadeUp1"><%= title %></h1>
+
+    <div id="resHotelDetail" class="fadeUp2">
+      <form action="/" method="post">
+        <table id="resHotelTable">
+          <tbody id="resHotelbody">
+            <tr hidden>
+              <td><input type="text" id="resDetail" value="<%= JSON.stringify(values) %>"></td>
+            </tr>
+            <tr id="resHotelListTitle">
+              <th class="formSubTitle formNum">No.</th>
+              <th class="formSubTitle formHotelName">ホテル名</th>
+              <th class="formSubTitle formResDate">予約日</th>
+              <th class="formSubTitle formResTime">時間</th>
+              <th class="formSubTitle formRoomVal">値段</th>
+              <th class="formSubTitle formRegDate">登録日時</th>
+            </tr>
+            <!-- ホテルの予約詳細を表示 -->
+          </tbody>
+        </table>
+      </form>
+    </div>
+
+  </main>
+
+</body>
+
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="shortcut icon" href="/images/目的地アイコン1.ico">
+  <title><%= title %></title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link rel='stylesheet' href='/stylesheets/reserve.css' />
+  <script type="text/javascript" src="/javascripts/commonCustom.js"></script>
+</head>
+
+<body>
+
+  <header>
+    <div class="header-measure">
+      <div class="header-logo">
+        <a href="/"><img src="/images/title.jpg" alt=""></a>
+      </div>
+      <div class="header-nav">
+        <nav class="nav">
+          <ul>
+            <li class="regUser genUser"><a href="/">ホーム</a></li>
+            <li class="genUser"><a href="/reserveList">予約確認</a></li>
+            <li class="regUser genUser"><a href="/?page=logout">ログアウト</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <h1 class="fadeUp1"><%= title %></h1>
+
+    <div>
+      <form action="/reserve" method="post">
+        <table>
+          <tbody>
+            <tr>
+              <div class="fadeIn2">下記の内容で予約する場合は「予約確定」ボタンを押下してください。</div>
+            </tr>
+            <tr class="fadeUp2">
+              <th style="padding: 20px 0px 20px; text-align: left;" colspan="2"><span class="blueSquare">◇</span><span class="formTitle">ホテル予約情報&nbsp;</span></th>
+            </tr>
+            <tr class="fadeUp2" style="padding-top: 50px;">
+              <td class="formYohaku"></td>
+              <th class="formSubTitle">ホテル名</th>
+              <td class="formValue" colspan="2"><span><%= hotelName %></span></td>
+              <td hidden><input type="text" name="hotelName" value="<%= hotelName %>"></td>
+            </tr>
+            <tr class="fadeUp2">
+              <td class="formYohaku"></td>
+              <th class="formSubTitle">予約希望日</th>
+              <td class="formValue" colspan="2"><span><%= resDate %></span></td>
+              <td hidden><input type="text" name="resDate" value="<%= resDate %>"></td>
+            </tr>
+            <tr class="fadeUp2">
+              <td class="formYohaku"></td>
+              <th class="formSubTitle">希望時間</th>
+              <td class="formValue" colspan="2"><span><%= fromTime %></span> ～ <span><%= toTime %></span></td>
+              <td hidden><input type="text" name="timeId" value="<%= timeId %>"></td>
+              <td hidden><input type="text" name="fromTime" value="<%= fromTime %>"></td>
+              <td hidden><input type="text" name="toTime" value="<%= toTime %>"></td>
+            </tr>
+            <tr class="fadeUp2">
+              <td class="formYohaku"></td>
+              <th class="formSubTitle">値段</th>
+              <td class="formValue" colspan="2"><span><%= roomVal %> 円</span></td>
+              <td hidden><input type="text" name="roomVal" value="<%= roomVal %>"></td>
+            </tr>
+
+            <tr class="fadeUp3">
+              <th style="padding: 20px 0px 20px; text-align: left;" colspan="2"><span class="blueSquare">◇</span><span class="formTitle">利用者情報&nbsp;</span></th>
+            </tr>
+            <tr class="fadeUp3">
+              <td class="formYohaku"></td>
+              <th class="formSubTitle">利用者名</th>
+              <td class="formValue" colspan="2"><span><%= userName %></span> 様</td>
+              <td hidden><input type="text" name="userName" value="<%= userName %>"></td>
+            </tr>
+            <tr class="fadeUp3">
+              <td class="formYohaku"></td>
+              <th class="formSubTitle">連絡先</th>
+              <td class="formValue" colspan="2"><span><%= contact %></span></td>
+              <td hidden><input type="text" name="contact" value="<%= contact %>"></td>
+            </tr>
+
+            <tr class="fadeUp4">
+              <td></td><td></td><td></td>
+              <td style="text-align: right; padding-top: 20px;"><button type="submit" id="btnConfirm">予約確定</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </form>
+    </div>
+
+  </main>
+
+</body>
+
+</html>

@@ -1,10 +1,13 @@
 window.onload = function() {
-	// 共通処理（リンク設定）
-	linkSetting(['index_link']);
+	
+	// 数字のみを入力する
+	$('.onlyNum').change(function() {
+		outOnlyNum(this);
+	});
 	
 	$('.check').change(function() {
 		customCheck(this.name);
-	});	
+	});
 }
 
 //半角返還・入力チェック処理

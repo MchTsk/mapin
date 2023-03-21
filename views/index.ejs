@@ -2,10 +2,12 @@
 <html>
 
 <head>
+  <link rel="shortcut icon" href="/images/目的地アイコン1.ico">
   <title><%= title %></title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maps.google.com/maps/api/js?key=AIzaSyAPggR6p__IQt-bL-pMxJ9Wb987XYuTitg&language=ja"></script>
   <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link rel='stylesheet' href='/stylesheets/index.css' />
   <script type="text/javascript" src="/javascripts/commonCustom.js"></script>
   <script type="text/javascript" src="/javascripts/indexCustom.js"></script>
 
@@ -18,40 +20,95 @@
 </head>
 
 <body>
-  <h1><%= title %></h1>
 
-  <div class="regUser">ようこそ、 <span style="font-weight: bold;"><%= userName %></span> さん</div>
-  <div class="outUser">ログアウトしました。</div>
+  <header>
+    <div class="header-measure">
+      <div class="header-logo">
+        <a href="/"><img src="/images/title.jpg" alt=""></a>
+      </div>
+      <div class="header-nav">
+        <nav class="nav">
+          <ul>
+            <li class="nonUser"><a href="/general"><span>会員登録</span></a></li>
+            <li class="nonUser"><a href="/regist"><span>法人登録</span></a></li>
+            <li class="nonUser"><a href="/login"><span>ログイン</span></a></li>
+            <li class="regUser"><a href="/form"><span>ホテル新規登録</span></a></li>
+            <li class="regUser"><a href="/hotelList"><span>ホテル一覧</span></a></li>
+            <li class="genUser"><a href="/reserveList"><span>予約確認</span></a></li>
+            <li class="regUser genUser"><a href="/?page=logout"><span>ログアウト</span></a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
 
-  <div class="nonUser"><a id="regist_link" href="">会員登録はこちら</a></div>
-  <div class="nonUser"><a id="login_link" href="">ログイン</a></div>
-  <div class="regUser"><a id="logout_link" href="">ログアウト</a></div>
-  <div class="regUser"><a id="form_link" href="">ホテルのマップ情報登録はこちら</a></div>
+  <main>
 
-  <div>
-    <button class="search" type="button" aria-haspopup="menu" aria-label="" onclick="clickSearch('current')">
-        <span>🔍現在地から検索</span>
-    </button>
-  </div>
-  <div id="mapInfo" hidden>
-    <%= JSON.stringify(values) %>
-  </div>
-  <div id="map" hidden></div>
+    <div class="regUser genUser fadeIn">ようこそ、 <span style="font-weight: bold;" id="userName"><%= userName %></span> さん</div>
+    <div class="outUser fadeIn">ログアウトしました。</div>
 
-  <div id="registHotelInfo" hidden>
-    <%= JSON.stringify(usersVal) %>
-  </div>
-  <div id="registHotelList" class="regUser">
-    <form action="/" method="post">
-      <table id="hTable">
-        <tbody id="uHotelTbody">
-          <tr>
-            <h3 id="hListTitle" style="margin-top: 20px; margin-bottom: 5px;">◆ホテル一覧</h3>
-          </tr>
-        </tbody>
-      </table>
-    </form>
-  </div>
+    <h1 class="fadeUp1"><%= title %></h1>
+
+    <div id="usrid" hidden><%= userId %></div>
+    <div id="role" hidden><%= role %></div>
+
+    <div style="padding-bottom: 20px;" class="fadeUp2">
+      <button class="search" type="button" aria-haspopup="menu" aria-label="" onclick="clickSearch('current')">
+          <span>SEARCH<img id="clIcon" src="/images/current location.png" alt=""></span>
+      </button>
+    </div>
+    <div id="mapInfo" hidden>
+      <%= JSON.stringify(values) %>
+    </div>
+    <div id="map" style="height: 550px;" hidden></div>
+
+    <!-- test -->
+    <!-- <div style="padding-top: 10px;"><input type="button" id="btn" value="ボタン"></div> -->
+
+    <div id="resHotelDetail" class="" hidden>
+      <form action="/" method="post">
+        <table id="resHotelTable">
+          <tbody id="resHotelbody">
+            <tr>
+              <th colspan="3" style="text-align: left;"><div id="hotelName"></div></th>
+            </tr>
+
+            <tr>
+              <td colspan="3" id="linkTd"><a id="exLink" href="" target="_blank">ホームページ（外部リンク）</a></td>
+            </tr>
+
+            <tr>
+              <th colspan="4" style="text-align: left;">
+                <div class="resDateArea formTitleDiv"><span class="blueSquare">◇</span><span class="formTitle">予約希望日&nbsp;</span></div>
+                <div class="resDateDiv resDateArea"><select id="resDate"></select></div>
+              </th>
+            </tr>
+
+            <tr>
+              <th colspan="3" style="text-align: left;"><div class="formTitleDiv resHotelArea"><span class="blueSquare">◇</span><span class="formTitle">予約詳細&nbsp;</span></div></th>
+            </tr>
+            <tr class="resHotelArea" id="resHotelListTitle">
+              <th class="tableYohaku"></th><th class="tableTitle"><div>No.</div></th><th class="tableTitle"><div>予約日</div></th><th class="tableTitle"><div>時間</div></th><th class="tableTitle"><div>値段</div></th><th class="tableTitle"><div>部屋数</div></th><th class="tableTitle"><div>選択</th></div>
+            </tr>
+            <!-- ホテルの予約詳細を表示 -->
+            <tr>
+              <td><input type="text" name="resDetail" value="" hidden></td>
+            </tr>
+            <tr>
+              <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+              <td><button type="submit" id="btnResCheck" disabled="disabled">予約確認</button></td>
+            </tr>
+            <tr>
+              <td></td><td colspan="5" align="right"><div class="regUser2 errMsg" id="copMsg"></div></td>
+            </tr>
+          </tbody>
+        </table>
+      </form>
+    </div>
+
+    <div style="padding-block: 50px;"></div>
+
+  </main>
 
 </body>
 

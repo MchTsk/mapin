@@ -1,0 +1,83 @@
+線の基点位置
+.nav li::before,
+.nav li::after{
+  content:"";
+  /*絶対配置で線の位置を決める*/
+  position: absolute;
+  background:#0481A2;
+  /*線の形状*/
+  width: 0;
+  height:2px;
+  /*アニメーションの指定*/
+  transition: all 0.2s linear;
+}
+
+.nav li::before{
+  right: 0;
+  bottom: 0;
+}
+
+.nav li::after{
+  left: 0;
+  top: 0;
+}
+
+/*線の基点位置2 spanタグ*/
+
+.nav li span{
+  display: block;
+}
+
+.nav li span::before,
+.nav li span::after{
+  content:"";
+    /*絶対配置で線の位置を決める*/
+  position: absolute;
+  background: #0481A2;
+    /*線の形状*/
+  width:2px;
+  height:0;
+  /*アニメーションの指定*/
+  transition: all 0.1s linear;
+}
+
+.nav li span::before{
+  left: 0;
+  bottom: 0;
+}
+
+.nav li span::after{
+  right: 0;
+  top: 0;
+}
+
+/*現在地とhoverした際の線の変化*/
+.nav li.current::before,
+.nav li.current::after,
+.nav li:hover::before,
+.nav li:hover::after{
+  width: 100%;
+}
+
+.nav li:hover::after{
+  transition-delay: 0s;/*すぐ線を出現させる*/
+}
+
+.nav li:hover::before{
+  transition-delay: 0.3s;/*線の出現を0.3秒遅らせる*/
+}
+
+.nav li.current span::before,
+.nav li.current span::after,
+.nav li:hover span::before,
+.nav li:hover span::after{
+  height: 100%;
+}
+
+.nav li:hover span::before{
+  transition-delay: 0.5s;/*線の出現を0.5秒遅らせる*/
+}
+
+.nav li:hover span::after{
+  transition-delay: 0.2s;/*線の出現を0.2秒遅らせる*/
+}

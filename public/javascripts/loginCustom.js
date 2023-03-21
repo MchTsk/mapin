@@ -1,13 +1,17 @@
 window.onload = function() {
-	// 共通処理（リンク設定）
-	linkSetting(['index_link']);
 
 	$('.check').change(function() {
 		customCheck(this.name);
-	});	
-}
+	});
 
-var AAA = 'test';
+	var errMsg = $('#errDiv').text();
+	if(errMsg) {
+		$('#errDiv').show();
+	}
+
+	// ログインID、パスワードが入力済みの場合はログインボタンを活性表示にするためにチェック実施
+	customCheck(this.name);
+}
 
 //半角返還・入力チェック処理
 function customCheck(fn) {

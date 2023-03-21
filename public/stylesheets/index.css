@@ -1,0 +1,295 @@
+#map {
+  height: 500px;
+}
+
+.search {
+  width: 100px;
+  height: 50px;
+  border: 2px solid #000;
+  border-radius: 0;
+  background: #fff;
+  -webkit-box-shadow: 4px 4px 0 #000;
+  box-shadow: 4px 4px 0 #000;
+  transition: 0.3s
+}
+
+.search:hover {
+  cursor: pointer;
+  background: #aff6ff;
+  -webkit-box-shadow: -4px -4px 0 #000;
+  box-shadow: -4px -4px 0 #000;
+}
+
+#clIcon {
+  padding-left: 5px;
+}
+
+/* #resHotelDetail {
+  padding-bottom: 130px;
+} */
+
+/* ---------------------予約詳細表示時アニメーション-------------------------- */
+
+#hotelName {
+  font-size: 30px;
+  padding-top: 40px;
+  padding-bottom: 10px;
+  padding-inline: 5px;
+  animation-name: fadeUpAnime;
+  animation-duration: 0.6s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+#linkTd {
+  padding-left: 15px;
+  animation-name: fadeUpAnime;
+  animation-duration: 0.6s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+#copMsg {
+  border: 1px solid red;
+  width: fit-content;
+  padding-inline: 3px;
+  /* 表示アニメーション */
+  animation: fadeIn 0.7s ease 1.3s 1 normal;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+.resDateArea {
+  animation-name: fadeUpAnime;
+  animation-duration: 0.9s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+.fadeHotelList,
+.resHotelArea {
+  animation-name: fadeUpAnime;
+  animation-duration: 1.2s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+#btnResCheck {
+    /* アニメーション */
+  animation-name: fadeUpAnime;
+  animation-duration: 1.5s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+@keyframes fadeUpAnime{
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn{
+
+  /*アニメーション開始時は不透明度0%*/
+  0% {opacity: 0}
+
+  /*アニメーション終了時は不透明度100%*/
+  100% {opacity: 1}
+
+}
+
+/* ---------------------セレクトボックスCSS-------------------------- */
+
+.resDateDiv {
+  position: relative;
+  width: 13.5%;
+  text-align: center;
+}
+
+#resDate {
+  position: relative;
+  font-family: inherit;
+  background-color: transparent;
+  width: 145px;
+  padding: 10px 10px 10px 0;
+  font-size: 15px;
+  border-radius: 0;
+  border: none;
+  border-bottom: 1px solid rgba(0,0,0, 0.3);
+}
+
+#resDate:focus {
+  outline: none;
+  border-bottom: 1px solid rgba(0,0,0, 0);
+}
+
+.resDateDiv #resDate {
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.resDateDiv select::-ms-expand {
+  display: none;
+}
+
+.resDateDiv:after {
+  position: absolute;
+  top: 18px;
+  left: 150px;
+  width: 0;
+  height: 0;
+  padding: 0;
+  content: '';
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid rgba(0, 0, 0, 0.3);
+  pointer-events: none;
+  /* アニメーション */
+  animation-name: fadeUpAnime;
+  animation-duration: 0.4s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+.resDateDiv {
+  padding-left: 30px;
+}
+
+.formTitleDiv {
+  padding-block: 10px;
+}
+
+.resDateDiv {
+  padding-bottom: 15px;
+}
+
+/* ---------------------予約フォームCSS-------------------------- */
+
+.tableTitle {
+  color: #fff;
+  background-color: rgba(0, 33, 179, 0.842);
+}
+
+.tableYohaku {
+  width: 30px;
+}
+
+.tableIndex {
+  width: 40px;
+  text-align: center;
+}
+
+.tableResDate {
+  width: 150px;
+  text-align: center;
+}
+
+.tableResTime {
+  width: 130px;
+  text-align: center;
+}
+
+.tableRoomVal {
+  width: 80px;
+  text-align: center;
+}
+
+.tableRoomNum {
+  width: 70px;
+  text-align: center;
+}
+
+.tableResPoint {
+  width: 45px;
+  text-align: center;
+}
+
+/* ---------------------予約確認ボタンCSS-------------------------- */
+
+#btnResCheck {
+  color: #000;
+  cursor: pointer;
+  border: 2px solid #000;
+  border-radius: 0;
+  background: #fff;
+  width: 120%;
+  height: 120%;
+
+  -webkit-transform-style: preserve-3d;
+
+  transform-style: preserve-3d;
+}
+
+#btnResCheck:hover {
+  background-color: #aff6ff;
+}
+
+#btnResCheck:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 9px;
+  height: 100%;
+
+  content: '';
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  -webkit-transform: translateX(0) translateY(0);
+  transform: translateX(0) translateY(0);
+
+  border-radius: 0 50% 50% 0;
+  background: #000;
+}
+
+#btnResCheck:hover:before {
+  font-family: 'Font Awesome 5 Free';
+  font-weight: bold;
+  line-height: 23.5px;
+
+  width: 23.5px;
+  height: 23.5px;
+
+  content: '➔';
+  -webkit-transform: translateX(0%) translateY(.0rem);
+  transform: translateX(300%) translateY(-3.5%);
+
+  color: #aff6ff;
+  border-radius: 50%;
+}
+
+#btnResCheck:disabled {
+  color: #a5a5a5;
+  cursor: default;
+  border: 2px solid #a5a5a5;
+  border-radius: 0;
+  background: #fff;
+
+  -webkit-transform-style: preserve-3d;
+
+  transform-style: preserve-3d;
+}
+
+#btnResCheck:disabled:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 3.5px;
+  height: 100%;
+
+  content: '';
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  -webkit-transform: translateX(0) translateY(0);
+  transform: translateX(0) translateY(0);
+
+  border-radius: 0 50% 50% 0;
+  background: #a5a5a5;
+}

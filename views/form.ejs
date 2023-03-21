@@ -2,55 +2,131 @@
 <html>
 
 <head>
+  <link rel="shortcut icon" href="/images/目的地アイコン1.ico">
   <title><%= title %></title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link rel='stylesheet' href='/stylesheets/form.css' />
   <script type="text/javascript" src="/javascripts/commonCustom.js"></script>
   <script type="text/javascript" src="/javascripts/formCustom.js"></script>
 </head>
 
 <body>
-  <h1><%= title %></h1>
 
-  <!-- <div hidden><input id="uidInp" type="text" name="uid" value=""></div> -->
-  <div><a id="index_link" href="">ホテル検索はこちら</a></div>
-  <div><a href="https://www.google.co.jp/maps/">緯度／経度の検索はこちら</a></div>
+  <header>
+    <div class="header-measure">
+      <div class="header-logo">
+        <a href="/"><img src="/images/title.jpg" alt=""></a>
+      </div>
+      <div class="header-nav">
+        <nav class="nav">
+          <ul>
+            <li class="regUser"><a href="/">ホーム</a></li>
+            <li class="regUser"><a href="/hotelList">ホテル一覧</a></li>
+            <li class="regUser"><a href="/?page=logout">ログアウト</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
 
-  <div id="createForm">
-    <form action="/form" method="post">
-      <table>
-        <tbody>
-            <th>ホテル名</th>
-            <td><input type="text" name="hotelName" class="check" value=""></td>
-          </tr>
-          <tr>
-            <th>緯度</th>
-            <td><input type="text" name="latitude" class="check" value=""></td>
-          </tr>
-          <tr id="latErrArea" style="display: none;">
-            <td></td>
-            <td colspan="2"><span class="errMsg">半角小数を入力してください。</span></td>
-          </tr>
-          <tr>
-            <th>経度</th>
-            <td><input type="text" name="longitude" class="check" value=""></td>
-          </tr>
-          <tr id="lngErrArea" style="display: none;">
-            <td></td>
-            <td colspan="2"><span class="errMsg">半角小数を入力してください。</span></td>
-          </tr>
-          <tr>
-            <th>ホームページURL</th>
-            <td><textarea name="hpUrl" class="check" cols="22" rows="5"></textarea></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td style="text-align: right;"><button type="submit" disabled="disabled">登録</button></td>
-          </tr>
-        </tbody>
-      </table>
-    </form>
-  </div>
+  <main>
+
+    <h1 class="fadeUp1"><%= title %></h1>
+
+    <!-- <div hidden><input id="uidInp" type="text" name="uid" value=""></div> -->
+    <div class="fadeUp1"><a id="exLink" href="https://www.google.co.jp/maps/" target="_blank">緯度／経度の検索はこちら</a></div>
+
+    <div id="createForm">
+      <form action="/form" method="post">
+        <table>
+          <tbody>
+            <tr class="fadeUp2">
+              <th colspan="2" style="padding: 20px 0px 10px; text-align: left; width: 140px;"><div class="formTitleDiv resHotelArea"><span class="blueSquare">◇</span><span class="formTitle">ホテル情報&nbsp;</span><span class="reqMsg">必須</span></div></th>
+            </tr>
+            <tr class="fadeUp2">
+              <td class="formYohaku"></td>
+              <th class="formSubTitle">ホテル名</th>
+              <td class="formValue"><input type="text" name="hotelName" class="check textBox" value=""></td>
+            </tr>
+            <tr class="fadeUp2">
+              <td class="formYohaku"></td>
+              <th class="formSubTitle">緯度</th>
+              <td class="formValue"><input type="text" name="latitude" class="check textBox" value=""></td>
+            </tr>
+            <tr id="latErrArea" style="display: none;">
+              <td class="formYohaku"></td>
+              <td></td>
+              <td colspan="2"><span class="errMsg">半角小数を入力してください。</span></td>
+            </tr>
+            <tr class="fadeUp2">
+              <td class="formYohaku"></td>
+              <th class="formSubTitle">経度</th>
+              <td class="formValue"><input type="text" name="longitude" class="check textBox" value=""></td>
+            </tr>
+            <tr id="lngErrArea" style="display: none;">
+              <td class="formYohaku"></td>
+              <td></td>
+              <td colspan="2"><span class="errMsg">半角小数を入力してください。</span></td>
+            </tr>
+            <tr class="fadeUp2">
+              <td class="formYohaku"></td>
+              <th class="formSubTitle">ホームページURL</th>
+              <td class="formValue"><textarea name="hpUrl" class="check" cols="83" rows="3"></textarea></td>
+            </tr>
+
+            <tr class="fadeUp2">
+              <th colspan="2" style="padding: 20px 0px 10px; text-align: left;"><div class="formTitleDiv resHotelArea"><span class="blueSquare">◇</span><span class="formTitle">営業情報&nbsp;</span></div></th>
+            </tr>
+            <tr class="fadeUp2">
+              <td class="formYohaku"></td>
+              <th class="formSubTitle">営業時間<span class="reqMsg">必須</span></th>
+              <td class="formValue">
+                <select class="check" id="fromTime" name="fbTime"><option value="">-</option></select><span>～</span>
+                <select class="check" id="toTime" name="tbTime"><option value="">-</option></select>
+                <div>24時間営業の場合は00:00～00:00を選択してください。</div>
+              </td>
+            </tr>
+            <tr class="fadeUp2">
+              <td class="formYohaku"></td>
+              <th class="formSubTitle">定休日</th>
+              <td class="formValue">
+                <div>
+                  <input type="checkbox" class="holiday" id="day_0" value="0"><label for="sun">日曜日</label>
+                  <input type="checkbox" class="holiday" id="day_1" value="1"><label for="mon">月曜日</label>
+                  <input type="checkbox" class="holiday" id="day_2" value="2"><label for="tue">火曜日</label>
+                  <input type="checkbox" class="holiday" id="day_3" value="3"><label for="wed">水曜日</label>
+                  <input type="checkbox" class="holiday" id="day_4" value="4"><label for="thu">木曜日</label>
+                  <input type="checkbox" class="holiday" id="day_5" value="5"><label for="fri">金曜日</label>
+                  <input type="checkbox" class="holiday" id="day_6" value="6"><label for="sat">土曜日</label>
+                </div>
+              </td>
+              <td hidden><input type="text" name="regHoliday" value=""></td>
+            </tr>
+            <!-- <tr>
+              <th>特定の休業日</th>
+              <td>
+                <input type="date" id="holiday">
+              </td>
+            </tr> -->
+
+            <tr id="resDetailTitle" class="fadeUp2">
+              <th colspan="2" style="padding: 20px 0px 10px; text-align: left;"><div class="formTitleDiv resHotelArea"><span class="blueSquare">◇</span><span class="formTitle">予約詳細&nbsp;</span><span class="reqMsg">必須</span></div></th>
+              <td style="padding: 20px 0px 10px;"><button type="button" id="incRes">予約詳細を増やす</button></td>
+              <td hidden><input type="text" name="resInfo" value=""></td>
+            </tr>
+
+            <tr class="fadeUp3">
+              <td></td><td></td>
+              <td style="text-align: right;"><button type="submit" class="btnRegist" id="btnRegist" disabled="disabled">登録</button></td>
+              <!-- <td style="text-align: right;"><button type="submit"  class="btnRegist" id="btnRegist">登録</button></td> -->
+            </tr>
+          </tbody>
+        </table>
+      </form>
+    </div>
+  
+  </main>
 
 </body>
 

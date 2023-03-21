@@ -13,9 +13,15 @@ var registRouter = require('./routes/regist');
 var loginRouter = require('./routes/login');
 var updHotelRouter = require('./routes/updHotel');
 var delHotelRouter = require('./routes/delHotel');
+var generalRouter = require('./routes/general');
+var reserveRouter = require('./routes/reserve');
+var hotelListRouter = require('./routes/hotelList');
+var reserveCheckRouter = require('./routes/reserveCheck');
+var reserveListRouter = require('./routes/reserveList');
+var cancelRouter = require('./routes/cancel');
 
 var app = express();
-_mysqlConnection = require('./public/javascripts/mysqlConnection.js');
+// _mysqlConnection = require('./public/javascripts/mysqlConnection.js');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -36,6 +42,12 @@ app.use('/regist', registRouter);
 app.use('/login', loginRouter);
 app.use('/updHotel', updHotelRouter);
 app.use('/delHotel', delHotelRouter);
+app.use('/general', generalRouter);
+app.use('/reserve', reserveRouter);
+app.use('/hotelList', hotelListRouter);
+app.use('/reserveCheck', reserveCheckRouter);
+app.use('/reserveList', reserveListRouter);
+app.use('/cancel', cancelRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
