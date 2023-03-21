@@ -3,11 +3,11 @@ const { Pool } = require("pg");
 
 // DB情報をもったプールを生成
 const pool = new Pool({
-    host: 'localhost',
-    database: 'postgres',
+    host: 'dpg-cgcskre4dad6fr6v3opg-a',
+    database: 'mapin_database',
     port: 5432,
-    user: 'postgres',
-    password: 'p@ssword',
+    user: 'stm_postgres',
+    password: 'f6vs2SsqW84HYc0kNm8ahEhHNFBOtXno',
     // ssl: { 
     //     sslmode: 'require',
     //     rejectUnauthorized: false
