@@ -22,6 +22,7 @@ var cancelRouter = require('./routes/cancel');
 
 var app = express();
 // _mysqlConnection = require('./public/javascripts/mysqlConnection.js');
+_pgConnection = require('./db/pool');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

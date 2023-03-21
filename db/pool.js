@@ -14,80 +14,20 @@ const pool = new Pool({
     // }
 });
 
-// pool.connect((error) => {
-//     if (error) {
-//         console.error('Database Connect Error:' + error);
-//         return;
-//     } else {
-//         console.log('Database Connection Success: id=' + pool.threadId);
-//     }
-// });
+pool.query('CREATE TABLE IF NOT EXISTS hotelInfo ("id" SERIAL NOT NULL, "name" TEXT, "lat" TEXT, "lng" TEXT, "url" TEXT, "fromBusTime" TEXT, "toBusTime" TEXT, "regHoliday" TEXT, "reservationInfo" TEXT, "userId" TEXT, "delFlg" SMALLINT, PRIMARY KEY ("id"));');
+pool.query('CREATE TABLE IF NOT EXISTS userInfo ("id" SERIAL NOT NULL, "userName" TEXT, "loginId" TEXT, "password" TEXT, "contact" TEXT, "userId" TEXT, "role" TEXT, "lastLoginDate" TIMESTAMP, PRIMARY KEY ("id"));');
+pool.query('CREATE TABLE IF NOT EXISTS reserveInfo ("id" SERIAL NOT NULL, "hotelId" TEXT, "hotelName" TEXT, "userId" TEXT, "userName" TEXT, "contact" TEXT, "reserveDate" TEXT, "timeNum" SMALLINT, "reserveTime" TEXT, "roomVal" TEXT, "oldFlg" SMALLINT, "cancelFlg" SMALLINT, "登録日時" TIMESTAMP, PRIMARY KEY ("id"));');
 
-// pool.query('CREATE DATABASE [ IF NOT EXISTS ] ??;', databaseName);
-// pool.query('USE ??;', databaseName);
-// pool.query('CREATE TABLE IF NOT EXISTS ??(id INT AUTO_INCREMENT PRIMARY KEY NOT NULL, name TEXT, lat TEXT, lng TEXT, url TEXT, fromBusTime TEXT, toBusTime TEXT, regHoliday TEXT, reservationInfo TEXT, userId TEXT, delFlg TINYINT(1));', hotelInfo);
-// pool.query('CREATE TABLE IF NOT EXISTS ??(id INT AUTO_INCREMENT PRIMARY KEY NOT NULL, userName TEXT, loginId TEXT, password TEXT, contact TEXT, userId TEXT, role TEXT, lastLoginDate DATETIME);', userInfo);
-// pool.query('CREATE TABLE IF NOT EXISTS ??(id INT AUTO_INCREMENT PRIMARY KEY NOT NULL, hotelId TEXT, hotelName TEXT, userId TEXT, userName TEXT, contact TEXT, reserveDate TEXT, timeNum TINYINT, reserveTime TEXT, roomVal TEXT, oldFlg TINYINT(1), cancelFlg TINYINT(1), 登録日時 DATETIME);', reserveInfo);
+pool.query('SELECT * FROM hotelInfo LIMIT 1;', (error, response) => {
+    console.log(response.fields);
+});
 
-// pool.query('SHOW FIELDS FROM ??;', hotelInfo, (error, response) => {
-//     console.log(response);
-// });
+pool.query('SELECT * FROM userInfo LIMIT 1;', (error, response) => {
+    console.log(response.fields);
+});
 
-// pool.query('SHOW FIELDS FROM ??;', userInfo, (error, response) => {
-//     console.log(response);
-// });
-
-// pool.query('SHOW FIELDS FROM ??;', reserveInfo, (error, response) => {
-//     console.log(response);
-// });
+pool.query('SELECT * FROM reserveInfo LIMIT 1;', (error, response) => {
+    console.log(response.fields);
+});
 
 module.exports = pool;
-
-
-
-// const mysql = require('mysql');
-// const databaseName = 'MAPIN';
-// const hotelInfo = 'hotelInfo';
-// const userInfo = 'userInfo';
-// const reserveInfo = 'reserveInfo';
-
-// // Create Connection
-// const connection = mysql.createConnection({
-//     host: 'localhost',
-//     user: 'root',
-//     password: 'stm12345' // depends to the user
-// });
-
-// // Connect Function
-// connection.connect((error) => {
-//     if (error) {
-//         console.error('Database Connect Error:' + error);
-//         return;
-//     } else {
-//         console.log('Database Connection Success: id=' + connection.threadId);
-//     }
-// });
-
-// // Initializing Database
-// connection.query('CREATE DATABASE IF NOT EXISTS ??;', databaseName);
-// connection.query('USE ??;', databaseName);
-// connection.query('CREATE TABLE IF NOT EXISTS ??(id INT AUTO_INCREMENT PRIMARY KEY NOT NULL, name TEXT, lat TEXT, lng TEXT, url TEXT, fromBusTime TEXT, toBusTime TEXT, regHoliday TEXT, reservationInfo TEXT, userId TEXT, delFlg TINYINT(1));', hotelInfo);
-// // connection.query('ALTER TABLE ?? ADD fromBusTime TEXT AFTER url, ADD toBusTime TEXT AFTER fromBusTime;', tableName);
-// connection.query('CREATE TABLE IF NOT EXISTS ??(id INT AUTO_INCREMENT PRIMARY KEY NOT NULL, userName TEXT, loginId TEXT, password TEXT, contact TEXT, userId TEXT, role TEXT, lastLoginDate DATETIME);', userInfo);
-// connection.query('CREATE TABLE IF NOT EXISTS ??(id INT AUTO_INCREMENT PRIMARY KEY NOT NULL, hotelId TEXT, hotelName TEXT, userId TEXT, userName TEXT, contact TEXT, reserveDate TEXT, timeNum TINYINT, reserveTime TEXT, roomVal TEXT, oldFlg TINYINT(1), cancelFlg TINYINT(1), 登録日時 DATETIME);', reserveInfo);
-// // connection.query('ALTER TABLE ?? ADD contact TEXT AFTER password;', userInfo);
-
-// connection.query('SHOW FIELDS FROM ??;', hotelInfo, (error, response) => {
-//     console.log(response);
-// });
-
-// connection.query('SHOW FIELDS FROM ??;', userInfo, (error, response) => {
-//     console.log(response);
-// });
-
-// connection.query('SHOW FIELDS FROM ??;', reserveInfo, (error, response) => {
-//     console.log(response);
-// });
-
-// // Export Connection
-// module.exports = connection;
