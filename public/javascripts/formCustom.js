@@ -12,7 +12,7 @@ var deliteListHtml = '<tr class="fadeUp2 formTimeTitle" id="resDetail_[0]"><td c
 						+ '<td class="formValue"><input type="text" style="width: 40px" id="fromTime_[2]" value=""><span>～</span><input type="text" style="width: 40px" id="toTime_[3]" value="">'
 						+ '<span class="detailTitle">部屋数</span><span class="detailForm"><input type="text" style="width: 40px" id="roomNum_[4]" value=""></span>'
 						+ '<span class="detailTitle">値段</span><span class="detailForm"><input type="text" style="width: 80px" id="roomVal_[5]" value=""></span><span style="margin-left: 5px;">円</span>'
-						+ '<input type="checkbox" class="aboFlg" id="aboFlg_[6]" value="1"><label>一時廃止</label></td></tr>';
+						+ '<input type="checkbox" style="margin-left: 50px;" class="aboFlg" id="aboFlg_[6]" value="1"><label>一時廃止</label></td></tr>';
 
 // 予約詳細のカウント数
 var counter = 0;
@@ -242,19 +242,19 @@ function delHotelProcess() {
 	var rhList = rhListStr.split(",");
 	var rhJpnList = [];
 	for(var i in rhList) {
-		if(rhList[i] == '1') {
+		if(rhList[i] == '0') {
 			rhJpnList.push('日曜日');
-		} else if(rhList[i] == '2') {
+		} else if(rhList[i] == '1') {
 			rhJpnList.push('月曜日');
-		} else if(rhList[i] == '3') {
+		} else if(rhList[i] == '2') {
 			rhJpnList.push('火曜日');
-		} else if(rhList[i] == '4') {
+		} else if(rhList[i] == '3') {
 			rhJpnList.push('水曜日');
-		} else if(rhList[i] == '5') {
+		} else if(rhList[i] == '4') {
 			rhJpnList.push('木曜日');
-		} else if(rhList[i] == '6') {
+		} else if(rhList[i] == '5') {
 			rhJpnList.push('金曜日');
-		} else if(rhList[i] == '7') {
+		} else if(rhList[i] == '6') {
 			rhJpnList.push('土曜日');
 		}
 	}
