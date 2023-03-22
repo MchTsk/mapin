@@ -92,6 +92,7 @@ select:focus {
   border-radius: 0;
   background: #fff;
   margin-left: 10px;
+  transition: 0.4s;
 
   width: 100%;
 
