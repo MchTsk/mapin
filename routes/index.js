@@ -88,7 +88,7 @@ router.get('/get', function(req, res, next) {
     } else {
       console.log('Read Success!!!：' + response.rows[0].id);
       var hotelInfo = response.rows;
-      connection.query('SELECT id, "reserveDate", "reserveTime", "登録日時" FROM "reserveInfo" WHERE "hotelId" = $1 AND "cancelFlg" = 0 ORDER BY "登録日時" ASC;', [hid], (error, response) => {
+      connection.query('SELECT id, "reserveDate", "reserveTime", "登録日時" FROM reserveInfo WHERE "hotelId" = $1 AND "cancelFlg" = 0 ORDER BY "登録日時" ASC;', [hid], (error, response) => {
         if (error) {
           console.error('Read Error:' + error);
           res.render('error', {});

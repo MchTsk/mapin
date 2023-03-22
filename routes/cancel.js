@@ -93,7 +93,7 @@ router.post('/', function (req, res, next) {
     });
   }
 
-  connection.query('UPDATE "reserveInfo" SET "cancelFlg" = $1 WHERE id = $2 AND "userId" = $3;', [1, rid, uid], (error, response) => {
+  connection.query('UPDATE reserveInfo SET "cancelFlg" = $1 WHERE id = $2 AND "userId" = $3;', [1, rid, uid], (error, response) => {
     if (error) {
       console.error('Cancel Error:' + error);
       res.render('error', {});

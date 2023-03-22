@@ -48,7 +48,7 @@ router.get('/', function (req, res, next) {
   }
 
   // 連絡先を取得
-  connection.query('SELECT "contact" FROM "userInfo" WHERE "userId" = $1 LIMIT 1;', [uid], (error, response) => {
+  connection.query('SELECT "contact" FROM userInfo WHERE "userId" = $1 LIMIT 1;', [uid], (error, response) => {
     if (error) {
       console.error('Read Error:' + error);
       res.render('error', {});

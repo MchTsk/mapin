@@ -29,13 +29,13 @@
       <div class="header-nav">
         <nav class="nav">
           <ul>
-            <li class="nonUser" hidden><a href="/general"><span>会員登録</span></a></li>
-            <li class="nonUser" hidden><a href="/regist"><span>法人登録</span></a></li>
-            <li class="nonUser" hidden><a href="/login"><span>ログイン</span></a></li>
-            <li class="regUser" hidden><a href="/form"><span>ホテル新規登録</span></a></li>
-            <li class="regUser" hidden><a href="/hotelList"><span>ホテル一覧</span></a></li>
-            <li class="genUser" hidden><a href="/reserveList"><span>予約確認</span></a></li>
-            <li class="regUser genUser" hidden><a href="/?page=logout"><span>ログアウト</span></a></li>
+            <li class="nonUser"><a href="/general"><span class="nonUser" hidden>会員登録</span></a></li>
+            <li class="nonUser"><a href="/regist"><span class="nonUser" hidden>法人登録</span></a></li>
+            <li class="nonUser"><a href="/login"><span class="nonUser" hidden>ログイン</span></a></li>
+            <li class="regUser"><a href="/form"><span class="regUser" hidden>ホテル新規登録</span></a></li>
+            <li class="regUser"><a href="/hotelList"><span class="regUser" hidden>ホテル一覧</span></a></li>
+            <li class="genUser"><a href="/reserveList"><span class="genUser" hidden>予約確認</span></a></li>
+            <li class="regUser genUser"><a href="/?page=logout"><span class="regUser genUser" hidden>ログアウト</span></a></li>
           </ul>
         </nav>
       </div>
@@ -44,8 +44,8 @@
 
   <main>
 
-    <div class="regUser genUser fadeIn">ようこそ、 <span style="font-weight: bold;" id="userName"><%= userName %></span> さん</div>
-    <div class="outUser fadeIn">ログアウトしました。</div>
+    <div class="regUser genUser fadeIn" hidden>ようこそ、 <span style="font-weight: bold;" id="userName"><%= userName %></span> さん</div>
+    <div class="outUser fadeIn" hidden>ログアウトしました。</div>
 
     <h1 class="fadeUp1"><%= title %></h1>
 

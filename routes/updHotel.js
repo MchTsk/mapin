@@ -82,7 +82,7 @@ router.post('/', function (req, res, next) {
   const rh = req.body.regHoliday;
   const ri = req.body.resInfo;
 
-  connection.query('UPDATE hotelInfo SET name = $1, lat = $2, lng = $3, url = $4, "fromBusTime" = $5, "toBusTime" = $6, "regHoliday" = $7, "reservationInfo" = $7 WHERE id = $8;', [name, lat, lng, url, fbTime, tbTime, rh, ri, hid], (error, response) => {
+  connection.query('UPDATE hotelInfo SET name = $1, lat = $2, lng = $3, url = $4, "fromBusTime" = $5, "toBusTime" = $6, "regHoliday" = $7, "reservationInfo" = $8 WHERE id = $9;', [name, lat, lng, url, fbTime, tbTime, rh, ri, hid], (error, response) => {
     if (error) {
       console.error('Update Error:' + error);
       res.render('error', {});

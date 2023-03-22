@@ -1,5 +1,5 @@
 // 会員が登録したホテルの一覧を表示するためのHTML
-var tempHtml = '<tr><td>ホテルの登録情報が存在しません。</td></tr>';
+var tempHtml = '<tr class="fadeUp2"><td>ホテルの登録情報が存在しません。</td></tr>';
 
 var tempListHtml = '<tr class="fadeUp2" id="hotelTr_[0]"><th class="formSubTitle" style="padding-inline: 70px">[1]</th>' 
 					+ '<td><button type="button" class="btnConfirm" onclick="location.href=[2]">予約状況</button></td>'

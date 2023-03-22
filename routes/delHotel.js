@@ -58,7 +58,7 @@ router.get('/', function (req, res, next) {
 
 /* POST new todo. */
 router.post('/', function (req, res, next) {
-  console.log('UPDATE!!!!!!!!!');
+  console.log('DELETE!!!!!!!!!');
 
   var uid = req.session.userId;
 
@@ -73,7 +73,7 @@ router.post('/', function (req, res, next) {
     });
   }
 
-  connection.query('UPDATE "hotelInfo" SET "delFlg" = $1 WHERE id = $2;', [1, hid], (error, response) => {
+  connection.query('UPDATE hotelInfo SET "delFlg" = $1 WHERE id = $2;', [1, hid], (error, response) => {
     if (error) {
       console.error('Update Error:' + error);
       res.render('error', {});

@@ -106,7 +106,7 @@ $(function() {
 			reserveInfo = jsonData.reserveInfo;
 
 			$('#hotelName').text(hotelInfo.name);
-			$('#hpLink').attr("href", hotelInfo.url);
+			$('#exLink').attr("href", hotelInfo.url);
 
 			dispResHotelDetail();
 
